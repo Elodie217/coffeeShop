@@ -1,7 +1,4 @@
-import org.example.CB;
-import org.example.CoffeeFactory;
-import org.example.PayPal;
-import org.example.Payment;
+import org.example.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,24 +10,29 @@ public class TestCoffeeWith {
     @Test
     public void testCoffeeWithSugar() {
 
-        CoffeeWithSugar = CoffeeWithSugar naw CoffeeWithSugar;
-
         Coffee Coffee = CoffeeFactory.createCoffee("Espresso");
-        String result = CoffeeFactory.executePaymentStrategy(Coffee);
+
+        CoffeeWithSugar CoffeeWithSugar = new CoffeeWithSugar(Coffee);
+
+        String resultCoffee = CoffeeWithSugar.prepare();
 
 
-        assertEquals(result, "Payement effectué en carte bancaire pour un montant de 10 €.", "La phrase de retour doit être identique");
+        assertEquals(resultCoffee, "Préparation d'un Espresso avec du sucre", "La phrase de retour doit être identique");
 
     }
 
-//    @Test
-//    public void testPaymentPayPal() {
-//
-//        Payment.setPaymentStrategy(new PayPal());
-//        String result = Payment.executePaymentStrategy(20);
-//
-//        assertEquals(result, "Payement effectué via PayPal pour un montant de 20 €.", "La phrase de retour doit être identique");
-//
-//    }
 
+    @Test
+    public void testCoffeeWithChocolate() {
+
+        Coffee Coffee = CoffeeFactory.createCoffee("Espresso");
+
+        CoffeeWithChocolate CoffeeWithChocolate = new CoffeeWithChocolate(Coffee);
+
+        String resultCoffee = CoffeeWithChocolate.prepare();
+
+
+        assertEquals(resultCoffee, "Préparation d'un Espresso avec du chocolat", "La phrase de retour doit être identique");
+
+    }
 }

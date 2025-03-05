@@ -1,17 +1,30 @@
 package org.example;
 
-public class CoffeeWithChocolate {
+public class CoffeeWithChocolate implements Coffee {
+
     private Coffee baseCoffee;
 
-    private CoffeeWithChocolate(Coffee baseCoffee){
+    public CoffeeWithChocolate(Coffee baseCoffee){
         this.baseCoffee = baseCoffee;
     }
 
-    public String prepare(){
-        return this.baseCoffee + " avec du chocolat";
+    @Override
+    public String name() {
+        return baseCoffee.name() + " avec du chocolat";
     }
 
-    public int prepare(int price){
-        return price + 2;
+    @Override
+    public String prepare() {
+        return baseCoffee.prepare() + " avec du chocolat";
+    }
+
+    @Override
+    public double cost(){
+        return baseCoffee.cost() + 0.5;
+    }
+
+    @Override
+    public String condiments() {
+        return baseCoffee.condiments() + "Chocolat ";
     }
 }

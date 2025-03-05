@@ -13,7 +13,7 @@ public class TestPaymentStrategy {
         Payment.setPaymentStrategy(new CB());
         String result = Payment.executePaymentStrategy(10);
 
-        assertEquals(result, "Payement effectué en carte bancaire pour un montant de 10 €.", "La phrase de retour doit être identique");
+        assertEquals(result, "Payement effectué en carte bancaire pour un montant de 10.0 €.", "La phrase de retour doit être identique");
 
     }
 
@@ -23,7 +23,7 @@ public class TestPaymentStrategy {
         Payment.setPaymentStrategy(new PayPal());
         String result = Payment.executePaymentStrategy(20);
 
-        assertEquals(result, "Payement effectué via PayPal pour un montant de 20 €.", "La phrase de retour doit être identique");
+        assertEquals(result, "Payement effectué via PayPal pour un montant de 20.0 €.", "La phrase de retour doit être identique");
 
     }
 

@@ -10,7 +10,7 @@ public class Payment {
         this.PaymentStrategy  = PaymentStrategy;
     }
 
-    public String executePaymentStrategy(int price) {
+    public String executePaymentStrategy(double price) {
         return PaymentStrategy.pay(price);
 
     }
