@@ -6,6 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
         CoffeeManager coffeeManager = CoffeeManager.getInstance();
+
+        ViewNotif view = new ViewNotif();
+        coffeeManager.addObserver(view);
+
         coffeeManager.run();
     }
 }

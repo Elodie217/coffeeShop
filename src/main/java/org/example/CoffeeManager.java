@@ -1,11 +1,15 @@
 package org.example;
 import org.example.CoffeeFactory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CoffeeManager {
 
     private static CoffeeManager instance;
     final private ViewCoffee view = new ViewCoffee();
+    private List<Observer> observers = new ArrayList<>();
 
     // Constructeur
     private CoffeeManager() {}
@@ -91,8 +95,24 @@ public class CoffeeManager {
             if (validerCommande == CoffeeAction.VALIDER){
 
                 view.showPayement(payementCoffee);
+
+                notifyObservers(coffee.prepare(), coffee.name());
             }
 
+        }
+    }
+
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    private void notifyObservers(String notif, String name) {
+        for (Observer observer : observers) {
+            observer.update(notif, name);
         }
     }
 }

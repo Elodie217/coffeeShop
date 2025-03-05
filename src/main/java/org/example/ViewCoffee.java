@@ -105,11 +105,7 @@ public class ViewCoffee {
 
     public CoffeeAction showPayement(String payement) {
 
-        Scanner scanner = new Scanner( System.in );
-
         System.out.print( payement + "\n" );
-
-        String choice = scanner.nextLine();
 
         return CoffeeAction.EXIT;
     }
